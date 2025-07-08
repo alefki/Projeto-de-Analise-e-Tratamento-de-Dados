@@ -12,7 +12,7 @@ class ProcessadorDeDados:
 
     def processar_dados(self, caminho_entrada, caminho_saida):
         try:
-            df = pd.read_csv(caminho_entrada)
+            df = pd.read_csv(caminho_entrada, encoding='utf-8')
             
             pessoas_processadas = []
 
@@ -59,7 +59,7 @@ class ProcessadorDeDados:
             
             df_saida = pd.DataFrame([p.to_dict() for p in pessoas_processadas])
             
-            df_saida.to_csv(caminho_saida, index=False)
+            df_saida.to_csv(caminho_saida, index=False, encoding='utf-8')
             
             print(f"Dados processados e salvos em: {caminho_saida}")
 
